@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+安装扩展https://chrome.google.com/webstore/detail/locatorjs/npbfdllefekhdplbkdigpncggmojpefi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### react框架项目引入：
+```
+npm install -D @locator/runtime
+npm install -D @locator/babel-jsx
+```
 
-## Available Scripts
+### babel配置文件增加
+```
+ plugins: [
+      ["@locator/babel-jsx/dist", {
+        env: "development"
+      }]
+    ],
+```
 
-In the project directory, you can run:
+### 入口文件增加
+```
+import setupLocatorUI from "@locator/runtime";
+if (process.env.NODE_ENV === "development") {
+  setupLocatorUI();
+}
+```
 
-### `npm start`
+### 官网支持很多框架
+[官方地址](https://www.locatorjs.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+缺点：
+* 多开工作台时，可能会出现工作台跳转错误的情况，但是有规律可寻，只是需要开发时注意下即可，很好避免。 
+* 目前不支持vue2版本，可以在老项目内使用vue-dev-tools 扩展进行代码跳转，此插件本身是支持的，可以选中组件树的某个节点，点击右下角的图标进行跳转，但是缺点是只能跳转到指定组件文件中，但是无法精确到指定行数。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+优点：  
+大大缩短了寻找代码位置的时间，尤其是繁重的老代码、项目内结构混乱的代码和重业务逻辑的项目。
