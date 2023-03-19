@@ -1,4 +1,7 @@
-安装扩展https://chrome.google.com/webstore/detail/locatorjs/npbfdllefekhdplbkdigpncggmojpefi
+### 作用： 可以通过点击UI页面跳转到代码编辑器指定行数   
+<br>
+    
+首先需要安装扩展https://chrome.google.com/webstore/detail/locatorjs/npbfdllefekhdplbkdigpncggmojpefi
 
 ### react框架项目引入：
 ```
